@@ -3,11 +3,9 @@ import  CarList from './props';
 
 const OutPut = () => {
 
-    const [cars, setCars] = useState([
-        { brand: 'Toyota', speed: '240KMPH', id: 1 },
-        { brand: 'Nissan', speed: '290KMPH', id: 2 },
-        { brand: 'Masaratti', speed: '300KMPH', id: 3}
-    ])
+    const [cars, setCars] = useState(null);
+    const [isPending, setPending] = useState(true);
+    const [isError, setError] = useState(null);
 
     const handleDelete = (id) => {
         const delCar = cars.filter(car => car.id !== id);
@@ -17,16 +15,35 @@ const OutPut = () => {
     const [name, setName] = useState("Nissan");
 
     useEffect(() => {
-        console.log("change car");
-    }, [name]);
+        //normally not use setTimeout method
+        setTimeout(() =>{
+        fetch('http://localhost:8080/cars')
+        .then(res => {
+            console.log(res)
+            if(!res.ok){
+                throw Error("something went wrong!");
+            }
+            return res.json();
+        })
+        .then(data =>{
+            setCars(data);
+            setPending(false);
+            setError(null);
+        }).catch(error => {
+            setPending(false);
+            setError(error.message);
+        });
+        }, 1000)
+
+    }, []);
     
     return(
 
         <div className="content">
-            <CarList cars={cars} title="All cars" handleDelete={handleDelete}/>
+            {isError && <div>{isError}</div>}
+            {isPending && <div>Loading...</div>}
+            {cars &&<CarList cars={cars} title="All cars" handleDelete={handleDelete}/>}
             {/* <CarList cars={cars.filter(car => car.brand === 'Toyota')} title="Toyota cars"/> */}
-            <button onClick={() => setName('Bugatti')}>Change Name</button>
-            <p>{name}</p>
         </div>
 
     );
