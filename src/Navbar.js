@@ -1,11 +1,10 @@
 const Navbar= () => {
+    const imgPath = process.env.PUBLIC_URL;
     return (
         <nav className="navbar">
-            <h1>Nav Bar</h1>
-            .<div className="links">
-                <li><a href="#">Home</a></li>
-                <li><a href="https://www.google.com/" target="_blank">Blog</a></li>
-            </div>
+            <img  className="logo" src={ imgPath + '/images/logo192.png'} /> 
+            <h3>ReactJS</h3>
+            <h4>React Project 2022</h4>
         </nav>
     );
 }

@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import React from 'react';
 import Navbar from './Navbar';
-import Home from './Home';
-import State from './state';
-import Output from './outputList';
+import Main from './Main';
 
-function App() {
+const App = () => {
   return (
+
     <div className="App">
       <Navbar/>
-      <div className="content">
-        <Home/>
-      </div>
-      <div className="state">
-        <State/>
-      </div>
-      <div className="output">
-        <Output/>
-      </div>
+      <Main/>
     </div>
+
   );
 }
 
