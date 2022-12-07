@@ -7,28 +7,25 @@ const App = () => {
 
     <div className="App">
       <Card
-        image="./images/cat1.jpg"
-        name="Mr. Doggy"
-        phone="(+94) 21-234321"
-        email="Mr.Doggy"
+        title="Title01"
+        para = "Description01"
+        isExist = {false}
       />
       <Card
-        image="./images/cat2.jpg"
-        name="Mr. Kitty"
-        phone="(+94) 21-234321"
-        email="Mr.Doggy"
+        title="Title02"
+        para = "Description02"
+        isExist = {true}
       />
       <Card
-        image="./images/cat2.jpg"
-        name="Mr. Meow"
-        phone="(+94) 21-234321"
-        email="Mr.Doggy"
+        title="Title03"
+        para = "Description03"
+        isExist = {true}
       />
       <Card
-        image="./images/cat1.jpg"
-        name="Mr. Doggy"
-        phone="(+94) 21-234321"
-        email="Mr.Doggy"
+        title="Title04"
+        para = "Description04"
+        isExist = {true}
+        comment = {[{author: "", body: "", desc: ""}]}
       />
     </div>
 
