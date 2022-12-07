@@ -1,21 +1,24 @@
 import React from 'react';
 
-const Card = () => {
+const Card = (props) => {
 
     const imgPath = process.env.PUBLIC_URL;
 
     return(
 
-        <div className="card">
-             <img  className="card-image" src={ imgPath + '/images/i3.svg'} /> 
+        <div className="cardContent">
+            <div className="card">
+             <img  className="card-image" src={` ${imgPath}/images/${props.image}`} /> 
+             {/* use js template method for add image  */}
              <div className="cardStars">
                 <img  className="star" src={ imgPath + '/images/star.svg'} />
-                <span>5.0 </span>
-                <span className="grey"> (6). USA</span>
+                <span>{props.rating}</span>
+                <span className="grey">{` (${props.ratingCount}).${props.country}`}</span>
              </div>
-             <p>Life lessons with Katie Zaferes</p>
-             <h2>From $36 / Person</h2>
+             <p>{props.title}</p>
+             <h2>{`From ${props.price} / Person`}</h2>
 
+            </div>
         </div>
     );
 
