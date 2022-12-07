@@ -1,21 +1,19 @@
 import React from 'react';
 
-const Card = (props) => {
-
-    console.log(props);
+const Card = ({image, name, phone, email}) => {
 
     const imgPath = process.env.PUBLIC_URL;
     return(
         <div className="cardContent">
             <div className="card02">
-                <img  className="" src={ imgPath + props.image} /> 
-                <h3>{props.name}</h3>
+                <img  className="" src={ imgPath + image} /> 
+                <h3>{name}</h3>
                 <div className="info-group">
                     <i class="fa fa-phone" aria-hidden="true"></i>
-                    <p>{props.phone}</p>
+                    <p>{phone}</p>
                 </div>
                 <div className="info-group">
-                    <p>{props.email}</p>
+                    <p>{email}</p>
                 </div>                
          </div>
         </div>
