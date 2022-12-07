@@ -71,3 +71,19 @@ nav{
   font-size:1rem;
   font-weight: normal;
 }
+
+.cardContent{
+  width:100%;
+  display:flex;
+  padding:5rem;
+}
+
+
+
+.card02{
+    width:200px;
+}
+
+.card02 img{
+  width:200px;
+}
