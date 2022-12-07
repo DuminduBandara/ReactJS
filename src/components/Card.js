@@ -1,25 +1,17 @@
 import React from 'react';
 
-const Card = (props) => {
+// const cities = ['nyc', 'landon', 'colombo'];
 
-    console.log(props);
+// map can use as for loop
+// const Card = cities.map( item => item[0].toUpperCase() + item.slice(1));
 
-    const imgPath = process.env.PUBLIC_URL;
+const Card = () => {
+    const ci = [<h1>NYC</h1>, 'landon', 'colombo'];
     return(
-        <div className="cardContent">
-            <div className="card02">
-                <img  className="" src={ imgPath + props.image} /> 
-                <h3>{props.name}</h3>
-                <div className="info-group">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <p>{props.phone}</p>
-                </div>
-                <div className="info-group">
-                    <p>{props.email}</p>
-                </div>                
-         </div>
-        </div>
+
+        <div>{ci}</div>
     );
 }
+
 
 export default Card;
