@@ -25,13 +25,13 @@ main{
   padding:3rem;
 }
 
-.form{
+.meme{
   display:grid;
   grid-template-columns:auto auto;
   grid-gap:2rem;
 }
 
-.form > button{
+.meme > button{
   grid-column: 1 / -1;
   background:purple;
   color:#fff;
@@ -40,7 +40,7 @@ main{
   font-size:1rem;
 }
 
-.form > input{
+.meme > input{
   padding:0.6rem;
   font-size:1rem;
 }
