@@ -7,16 +7,18 @@ const Card = (props) => {
     return(
 
         <div className="card">
-            {props.openSpots === 0 && <div className="sold-badge">SOLD OUT</div>}
-            <img  className="card-image" src={` ${imgPath}/images/${props.image}`} /> 
-            {/* use js template method for add image  */}
-            <div className="cardStars">
-            <img  className="star" src={ imgPath + '/images/star.svg'} />
-            <span>{props.rating}</span>
-            <span className="grey">{` (${props.ratingCount}).${props.country}`}</span>
+            <img  className="card-image" src={` ${imgPath}/images/${props.imageUrl}`} /> 
+            <div className="card-info">
+                <div className="card-top">
+                    <img  className="location-ico" src= {`${imgPath}/images/locationIco.svg`}/> 
+                    <span>{props.location}</span>
+                    <a href={props.googleMap}>View on the Google Map</a>
+                </div>
+                <h1 className="card-title">{props.title}</h1>
+                <h4>{`${props.startDate} - ${props.endDate}`}</h4>
+                <p>{props.description}</p>
+
             </div>
-            <p>{props.title}</p>
-            <h2>{`From ${props.price} / Person`}</h2>
 
         </div>
     );
