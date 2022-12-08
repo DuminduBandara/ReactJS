@@ -7,7 +7,8 @@ export default [
         country : "USA",
         title : "Life Lesson with Katie Zaferes",
         price : 100,
-        openSpots: 32
+        openSpots: 32,
+        location: "online"
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export default [
         country : "Sri Lanka",
         title : "Cook with Maria",
         price : 200,
-        openSpots: 12
+        openSpots: 12,
+        location: "online"
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export default [
         country : "Canada",
         title : "Life Lesson with Katie Zaferes",
         price : 300,
-        openSpots: 0
+        openSpots: 0,
+        location: "online"
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ export default [
         country : "UK",
         title : "Life Lesson with Katie Zaferes",
         price : 560,
-        openSpots: 20
+        openSpots: 20,
+        location: "online"
     },
     {
         id: 5,
@@ -47,7 +51,8 @@ export default [
         country : "China",
         title : "Life Lesson with Katie Zaferes",
         price : 300,
-        openSpots: 5
+        openSpots: 5,
+        location: "online"
     },
     {
         id: 6,
@@ -57,6 +62,7 @@ export default [
         country : "Thailand",
         title : "Life Lesson with Katie Zaferes",
         price : 100,
-        openSpots: 10
+        openSpots: 10,
+        location: "online"
     }
 ]

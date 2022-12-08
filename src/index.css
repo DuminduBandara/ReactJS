@@ -88,11 +88,10 @@ nav{
 
 .sold-badge{
   position: absolute;
-  top:2.13rem;
-  left:2rem;
+  top:2rem;
+  left:5rem;
   background:rgb(160, 160, 160);
   color:#000;
   padding:5px 10px;
-  border-top-left-radius:20px;
   font-weight: bold;
 }

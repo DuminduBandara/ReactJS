@@ -8,13 +8,8 @@ const App = () => {
   const DataInput = Data.map(data => {
     return <Card
       key={data.id}
-      image={data.image}
-      rating={data.rating}
-      ratingCount ={data.ratingCount}
-      country ={data.country}
-      title ={data.title}
-      price ={data.price}
-      openSpots ={data.openSpots}
+      // data = {data} method01
+      {...data} //method02
     />
   })
 
