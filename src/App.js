@@ -1,12 +1,14 @@
-// import React from 'react';
+import React from 'react';
+import Header from './components/Header';
+import Meme from './components/Meme';
 
-import Card from './components/Card';
 
 const App = () => {
   return(
 
-    <div>
-      <Card/>
+    <div className="app">
+      <Header/>
+      <Meme/>
     </div>
 
   );
