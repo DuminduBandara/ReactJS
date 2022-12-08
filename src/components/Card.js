@@ -6,19 +6,18 @@ const Card = (props) => {
 
     return(
 
-        <div className="cardContent">
-            <div className="card">
-             <img  className="card-image" src={` ${imgPath}/images/${props.image}`} /> 
-             {/* use js template method for add image  */}
-             <div className="cardStars">
-                <img  className="star" src={ imgPath + '/images/star.svg'} />
-                <span>{props.rating}</span>
-                <span className="grey">{` (${props.ratingCount}).${props.country}`}</span>
-             </div>
-             <p>{props.title}</p>
-             <h2>{`From ${props.price} / Person`}</h2>
-
+        <div className="card">
+            {props.openSpots === 0 && <div className="sold-badge">SOLD OUT</div>}
+            <img  className="card-image" src={` ${imgPath}/images/${props.image}`} /> 
+            {/* use js template method for add image  */}
+            <div className="cardStars">
+            <img  className="star" src={ imgPath + '/images/star.svg'} />
+            <span>{props.rating}</span>
+            <span className="grey">{` (${props.ratingCount}).${props.country}`}</span>
             </div>
+            <p>{props.title}</p>
+            <h2>{`From ${props.price} / Person`}</h2>
+
         </div>
     );
 
