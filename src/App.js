@@ -2,12 +2,18 @@ import React from 'react';
 
 const App = () => {
 
-  const [data, setData] = React.useState(["array01", "array02"]);
+  const [data, setData] = React.useState(["Item 1", "Item 2"]);
 
   
   const addItem = () => {
-    const dataText = `array${data.length + 1}`;
-    setData(prevState => [...prevState, dataText])
+    // method01
+    setData(prevArray => [...prevArray, `Item ${prevArray.length + 1}`]);
+    
+    //method02
+    // setData(prevArray =>{
+    //    return [...prevArray, `Item ${prevArray.length + 1}`]
+    //   });
+    // }
   }
   const getArray = data.map(data => <p key={data}>{data}</p>);
 
