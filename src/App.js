@@ -2,20 +2,28 @@ import React from 'react';
 
 const App = () => {
 
-  const [data, setData] = React.useState(["array01", "array02"]);
+  const sayApp = (name) => {
+    const date = new Date();
+    const hours = date.getHours();
 
-  
-  const addItem = () => {
-    const dataText = `array${data.length + 1}`;
-    setData(prevState => [...prevState, dataText])
+    let timeOfDay;
+    if(hours >=4 && hours < 12){
+      timeOfDay = "Good morning"
+    }else if(hours >=12 && hours < 17){
+      timeOfDay = "Good Afternoon"
+    }else if(hours >=17 && hours < 20){
+      timeOfDay = "Good evening"
+    }else{
+      timeOfDay = "Good Night"
+    }
+
+    return `${timeOfDay} ${name}!`;
   }
-  const getArray = data.map(data => <p key={data}>{data}</p>);
 
   return(
 
     <div className="app">
-      <button onClick={addItem}>Add Array</button>
-      {getArray}
+      {sayApp("Dumindu")}
     </div>
 
   );
