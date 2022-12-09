@@ -3,15 +3,20 @@ import React from 'react';
 import MemeData from './memeData';
 
 const Meme = () => {
+    const imgPath = process.env.PUBLIC_URL;
+
+
+    const [memeImage, setMemeImage] = React.useState("");
 
     let url;
 
     const getMeme = () => {
         const memesArray = MemeData.data.meme;
         const randomNumber = Math.floor(Math.random() * memesArray.length);
-        // alert(randomNumber);
-        url = memesArray[randomNumber].url;
-        alert(url); 
+        // console.log(url = memesArray[randomNumber].url);
+        setMemeImage(memesArray[randomNumber].url);
+
+        // console.log(memeImage);
     }
 
     return(
@@ -24,6 +29,7 @@ const Meme = () => {
                     onClick={getMeme}
                 >Get new Meme</button>
             </div>
+            <img className="memeImage" src={`${imgPath}/images/${memeImage}`} /> 
         </main>
 
     );
