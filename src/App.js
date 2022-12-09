@@ -2,28 +2,40 @@ import React from 'react';
 
 const App = () => {
 
-  const sayApp = (name) => {
-    const date = new Date();
-    const hours = date.getHours();
+  const [result, setResult] = React.useState("yes");
+  const [count, setCount] = React.useState(0);
 
-    let timeOfDay;
-    if(hours >=4 && hours < 12){
-      timeOfDay = "Good morning"
-    }else if(hours >=12 && hours < 17){
-      timeOfDay = "Good Afternoon"
-    }else if(hours >=17 && hours < 20){
-      timeOfDay = "Good evening"
-    }else{
-      timeOfDay = "Good Night"
-    }
 
-    return `${timeOfDay} ${name}!`;
+  const func = ()=> {
+    setResult("No");
+  }
+
+  // method01
+  // const add = () => {
+  //   setCount((oldValue) => {
+  //     return oldValue + 1;
+  //   })
+  // }
+
+  //method01 best way
+  const add = () => {
+    setCount(oldValue => oldValue + 1);
+  }
+
+
+  const remove = () => {
+    setCount((oldValue) => {
+      return oldValue - 1;
+    })
   }
 
   return(
 
     <div className="app">
-      {sayApp("Dumindu")}
+      <h1 onClick={func}>{count}</h1>
+      <button onClick={add}>Add</button>
+      <button onClick={remove}>Remove</button>
+
     </div>
 
   );
