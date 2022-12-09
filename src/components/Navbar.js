@@ -1,9 +1,7 @@
-const Navbar= () => {
-    const imgPath = process.env.PUBLIC_URL;
+const Navbar= (props) => {
+    
     return (
-        <nav className="navbar">
-            <img  className="logo" src={ imgPath + '/images/logo.svg'} /> 
-        </nav>
+        <h1>{props.data}</h1>
     );
 }
 
