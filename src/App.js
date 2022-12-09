@@ -1,4 +1,6 @@
 import React from 'react';
+// import React from '';
+import Check from './components/check';
 
 const App = () => {
 
@@ -13,28 +15,23 @@ const App = () => {
   )
 
   
-  let checkIco = useData.isFavour ? "Checked!" : "Unchecked!";
 
   const Favour = () => {
       setUseData(prevData =>{
        return{
           ...prevData, 
           isFavour: !prevData.isFavour
-      }
-
-
-    
+      }    
     })    
   }
 
   return(
 
     <div className="app">
-      <button onClick={Favour} className="btn">IS Favour</button>
       <h1>{useData.firstName} {useData.lastName}</h1>
       <h2>{useData.phone}</h2>
       <h2>{useData.email}</h2> 
-      <h2>{checkIco}</h2>
+      <Check isChecked={useData.isFavour} handleClick={Favour}/>
     </div>
 
   );
