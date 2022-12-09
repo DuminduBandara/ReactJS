@@ -2,40 +2,39 @@ import React from 'react';
 
 const App = () => {
 
-  const [result, setResult] = React.useState("yes");
-  const [count, setCount] = React.useState(0);
+  const [useData, setUseData] = React.useState(
+    {
+      firstName: "Alex",
+      lastName: "Martin",
+      phone: "+94 212122121",
+      email: "alexMar123@gmail.com",
+      isFavour: false
+    }
+  )
+
+  
+  let checkIco = useData.isFavour ? "Checked!" : "Unchecked!";
+
+  const Favour = () => {
+      setUseData(prevData =>{
+       return{
+          ...prevData, 
+          isFavour: !prevData.isFavour
+      }
 
 
-  const func = ()=> {
-    setResult("No");
-  }
-
-  // method01
-  // const add = () => {
-  //   setCount((oldValue) => {
-  //     return oldValue + 1;
-  //   })
-  // }
-
-  //method01 best way
-  const add = () => {
-    setCount(oldValue => oldValue + 1);
-  }
-
-
-  const remove = () => {
-    setCount((oldValue) => {
-      return oldValue - 1;
-    })
+    
+    })    
   }
 
   return(
 
     <div className="app">
-      <h1 onClick={func}>{count}</h1>
-      <button onClick={add}>Add</button>
-      <button onClick={remove}>Remove</button>
-
+      <button onClick={Favour} className="btn">IS Favour</button>
+      <h1>{useData.firstName} {useData.lastName}</h1>
+      <h2>{useData.phone}</h2>
+      <h2>{useData.email}</h2> 
+      <h2>{checkIco}</h2>
     </div>
 
   );
