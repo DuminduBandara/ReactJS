@@ -6,17 +6,26 @@ const Meme = () => {
     const imgPath = process.env.PUBLIC_URL;
 
 
-    const [memeImage, setMemeImage] = React.useState("");
+    const [memeImage, setMemeImage] = React.useState(
+        {
+            topText: "",
+            bottomText: "",
+            ranImage: "m1.jpg" 
+        }
+    );
 
-    let url;
+    const [allMemeImages, setAllMemeImages] = React.useState(MemeData);
+
 
     const getMeme = () => {
-        const memesArray = MemeData.data.meme;
+        const memesArray = allMemeImages.data.meme
         const randomNumber = Math.floor(Math.random() * memesArray.length);
-        // console.log(url = memesArray[randomNumber].url);
-        setMemeImage(memesArray[randomNumber].url);
+        const url = memesArray[randomNumber].url;
+        setMemeImage(prevMeme => ({
+            ...prevMeme,
+            ranImage:url
+        }))
 
-        // console.log(memeImage);
     }
 
     return(
@@ -29,7 +38,8 @@ const Meme = () => {
                     onClick={getMeme}
                 >Get new Meme</button>
             </div>
-            <img className="memeImage" src={`${imgPath}/images/${memeImage}`} /> 
+            <img className="memeImage" src={`${imgPath}/images/${memeImage.ranImage}`} /> 
+            {/* <img className="memeImage" src=""/>  */}
         </main>
 
     );
