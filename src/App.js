@@ -1,21 +1,27 @@
 import React from 'react';
-import Body from './components/body';
-import Navbar from './components/Navbar'
+import boxes from './components/box';
+import BoxM from './components/BoxM';
 
 const App = () => {
 
 
-  const [data, setData] = React.useState("Jeo");
+  const [squares, setSquares] = React.useState(boxes)
+
+
+
+  const squareElement = squares.map(square => (
+    <BoxM key={square.id} on={square.on}/>
+  )) //if you add html inside function make sure to add '()' not '{}'
 
 
 
   
   return(
 
-    <div>
-      <Navbar data={data}/>
-      <Body data={data}/>
-    </div>
+      <main>
+        {squareElement}
+      </main>
+
   );
 }
 
