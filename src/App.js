@@ -13,9 +13,6 @@ const App = () => {
     <BoxM key={square.id} on={square.on}/>
   )) //if you add html inside function make sure to add '()' not '{}'
 
-
-
-  
   return(
 
       <main>
