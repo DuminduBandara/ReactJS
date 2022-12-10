@@ -116,7 +116,7 @@ const Form = () => {
             </select>
             <br/>
 
-            <input type="submit" value="Send"></input>
+            <button>Submit</button>
 
         </form>
     );
