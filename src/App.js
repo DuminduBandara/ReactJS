@@ -1,17 +1,21 @@
 import React from 'react';
-import Form from "./components/form";
+
 
 
 const App = () => {
 
+  const [useData, setUseData] = React.useState({})
+
+  fetch("http://swapi.dev/api/people/1")
+  .then(res => res.json())
+  .then(data => setUseData(data))
+
   return(
-
-  <div>
-    <Form/>
-  </div>    
-    
-
+    <div>
+      <pre>{JSON.stringify(useData, null, 2)}</pre>
+    </div>
   );
+
 }
 
 export default App;
