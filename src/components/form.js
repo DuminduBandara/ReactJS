@@ -67,7 +67,6 @@ const Form = () => {
                 value="car"
                 checked={dataName.isTrue}
                 onChange={handleChange}
-
             />
             <label htmlFor="news">I want to join newsletter</label><br/>
             </div>
