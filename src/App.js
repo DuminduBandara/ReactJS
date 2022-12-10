@@ -1,16 +1,20 @@
 import React from 'react';
-import Header from './components/Header';
-import Meme from './components/Meme';
+import WindowTracker from './components/window'
 
 
 const App = () => {
-  return(
 
-    <div className="app">
-      <Header/>
-      <Meme/>
-    </div>
+  const [show, setShow] = React.useState(true)
 
+  const toggle = () => {
+    setShow(prevShow => !prevShow)
+  }
+
+  return (
+    <div>
+        <button onClick={toggle}>Toggle Window</button>
+        {show && <WindowTracker/>}
+    </div>  
   );
 }
 
