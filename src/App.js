@@ -1,32 +1,15 @@
 import React from 'react';
-import Show from "./components/show";
+import Form from "./components/form";
 
 
 const App = () => {
 
-    const arr =  {
-    }
- 
   return(
 
-      <main>
-        <Show
-        setup = "Wow wow wow" 
-        punchLine = "This is React world!"
-        />
-        <Show
-        setup = "Wow wow wow" 
-        punchLine = "This is React world!"
-        />
-        <Show
-        setup = "Wow wow wow" 
-        punchLine = "This is React world!"
-        />
-        <Show
-        setup = "Wow wow wow" 
-        punchLine = "This is React world!"
-        />
-      </main>
+  <div>
+    <Form/>
+  </div>    
+    
 
   );
 }
