@@ -2,15 +2,3 @@
   box-sizing: border-box;
 }
 
-
-
-main{
-  display:flex;
-}
-
-.box{
-  height:120px;
-  width:120px;
-  border:1px solid #000;
-  margin:2rem;
-}

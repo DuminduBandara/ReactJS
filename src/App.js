@@ -1,25 +1,31 @@
 import React from 'react';
-import boxes from './components/box';
-import BoxM from './components/BoxM';
+import Show from "./components/show";
+
 
 const App = () => {
 
-
-  const [squares, setSquares] = React.useState(boxes)
-
-
-
-  const squareElement = squares.map(square => (
-    <BoxM key={square.id} on={square.on}/>
-  )) //if you add html inside function make sure to add '()' not '{}'
-
-
-
-  
+    const arr =  {
+    }
+ 
   return(
 
       <main>
-        {squareElement}
+        <Show
+        setup = "Wow wow wow" 
+        punchLine = "This is React world!"
+        />
+        <Show
+        setup = "Wow wow wow" 
+        punchLine = "This is React world!"
+        />
+        <Show
+        setup = "Wow wow wow" 
+        punchLine = "This is React world!"
+        />
+        <Show
+        setup = "Wow wow wow" 
+        punchLine = "This is React world!"
+        />
       </main>
 
   );
