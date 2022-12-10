@@ -6,7 +6,7 @@ const App = () => {
 
   return(
 
-  <div>
+  <div className="appContent">
     <Form/>
   </div>    
     

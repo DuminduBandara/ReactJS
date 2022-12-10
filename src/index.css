@@ -2,3 +2,20 @@
   box-sizing: border-box;
 }
 
+
+.formSection{
+  display:flex;
+  flex-direction: column;
+  width:500px;
+  margin:10rem auto;
+  background-color:#fff;
+}
+
+.formSection > input, .formSection > button{
+  padding:1rem;
+  margin-bottom:2rem;
+}
+
+.formSection > button{
+  margin-top:2rem;
+}

@@ -4,13 +4,10 @@ const Form = () => {
 
     const [dataName, setDataName] = React.useState(
         {
-            firstName: '',
-            lastName: '',
             email: '',
-            textArea: '',
             isTrue: true,
-            vehicle: '',
-            favBrand: '',
+            password: '',
+            confirmPassword: '',
         }
     );
 
@@ -31,92 +28,52 @@ const Form = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(dataName);
+        if(dataName.password === dataName.confirmPassword){
+            console.log("Pass");
+        }else{
+            alert("Incorrect Password");
+        }
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
-                type="text"
-                placeholder="FirstName"
-                name="firstName"
-                onChange={handleChange}
-                value={dataName.firstName}
-            /><br/>
-            <input 
-                type="text"
-                placeholder="LastName"
-                name="lastName"
-                onChange={handleChange}
-                value={dataName.lastName}
-            /><br/>
+        <form onSubmit={handleSubmit} className="formSection">
             <input 
                 type="email"
                 placeholder="Email"
                 name="email"
                 onChange={handleChange}
-            /><br/>
-            <textarea 
-                value={dataName.textArea}
-                name="textArea"
-                onChange={handleChange}
             />
-            <br/>
+            <input 
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={handleChange}
+                value={dataName.password}
+            />
+            <input 
+                type="password"
+                placeholder="confirm Password"
+                name="confirmPassword"
+                onChange={handleChange}
+                value={dataName.confirmPassword}
+            />              
+
+            <div>
+
             <input
                 type="checkbox"
-                id="isTrue"
-                checked={dataName.isTrue}
-                onChange={handleChange}
-                name="isTrue"
-            />
-            <label htmlFor="isTrue">IS that true?</label><br/>
-
-            <input
-                type="radio"
-                id="car"
+                id="news"
                 name="vehicle"
                 value="car"
-                checked={dataName.vehicle === "car"}
+                checked={dataName.isTrue}
                 onChange={handleChange}
 
             />
-            <label htmlFor="car">Car</label><br/>
-            <input
-                type="radio"
-                id="van"
-                name="vehicle"
-                value="van"
-                checked={dataName.vehicle === "van"}
-                onChange={handleChange}
+            <label htmlFor="news">I want to join newsletter</label><br/>
+            </div>
+            
 
-            />
-            <label htmlFor="van">Van</label><br/>
-            <input
-                type="radio"
-                id="bus"
-                name="vehicle"
-                value="bus"
-                checked={dataName.vehicle === "bus"}
-                onChange={handleChange}
-            />
-            <label htmlFor="bus">Bus</label><br/>
-
-            <label htmlFor="favBrand">Favorite Brand</label><br/>
-            <select 
-                id="favBrand"
-                value={dataName.favBrand}
-                onChange={handleChange}
-                name="favBrand"
-            >
-                <option value="">-- Choose ---</option>
-                <option value="BMW">BMW</option>
-                <option value="Subaru">Subaru</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Nissan">Nissan</option>
-            </select>
-            <br/>
-
-            <button>Submit</button>
+            <button>Sign Up</button>
 
         </form>
     );
