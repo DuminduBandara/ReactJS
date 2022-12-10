@@ -4,28 +4,16 @@ import Show from "./components/show";
 
 const App = () => {
 
-    const arr =  {
-    }
+    const [message, setMessage] = React.useState(["a", "b", "c"])
  
   return(
 
       <main>
-        <Show
-        setup = "Wow wow wow" 
-        punchLine = "This is React world!"
-        />
-        <Show
-        setup = "Wow wow wow" 
-        punchLine = "This is React world!"
-        />
-        <Show
-        setup = "Wow wow wow" 
-        punchLine = "This is React world!"
-        />
-        <Show
-        setup = "Wow wow wow" 
-        punchLine = "This is React world!"
-        />
+        {
+          message.length === 0 ?
+          <h1>You're all caught up</h1>:
+          <h1>You have {message.length} unread {message.length > 1 ? "messages": "message"}</h1>
+        }        
       </main>
 
   );
