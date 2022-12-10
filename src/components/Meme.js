@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MemeData from './memeData';
+// import MemeData from './memeData';
 
 const Meme = () => {
     const imgPath = process.env.PUBLIC_URL;
@@ -10,17 +10,23 @@ const Meme = () => {
         {
             topText: "",
             bottomText: "",
-            ranImage: "m1.jpg" 
+            ranImage: "https://i.imgflip.com/26am.jpg" 
+            // ranImage: "" 
         }
     );
 
-    const [allMemeImages, setAllMemeImages] = React.useState(MemeData);
+    const [allMemeImages, setAllMemeImages] = React.useState([]);
 
+    React.useEffect( () => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemeImages(data.data.memes))
+    }, [])
 
     const getMeme = () => {
-        const memesArray = allMemeImages.data.meme
-        const randomNumber = Math.floor(Math.random() * memesArray.length);
-        const url = memesArray[randomNumber].url;
+        // const memesArray = allMemeImages.data.meme
+        const randomNumber = Math.floor(Math.random() * allMemeImages.length);
+        const url = allMemeImages[randomNumber].url;
         setMemeImage(prevMeme => ({
             ...prevMeme,
             ranImage:url
@@ -58,7 +64,7 @@ const Meme = () => {
                 >Get new Meme</button>
             </div>
             <div className="meme">
-                <img className="memeImage" src={`${imgPath}/images/${memeImage.ranImage}`} /> 
+                <img className="memeImage" src={memeImage.ranImage}/> 
                 <h2 className="top-text">{memeImage.topText}</h2>
                 <h2 className="bottom-text">{memeImage.bottomText}</h2>
             </div>
