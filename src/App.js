@@ -1,14 +1,21 @@
 import React from 'react';
-import Header from './components/Header';
-import Meme from './components/Meme';
+import Main from './components/Main';
+import Navbar from './components/Navbar';
 
 
 const App = () => {
+
+  const [darkMode, setDarkMode] = React.useState(true)
+ 
+  const toggleDarkMode = () => {
+    setDarkMode(prevMode => !prevMode);
+  }
+
   return(
 
     <div className="app">
-      <Header/>
-      <Meme/>
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+      <Main darkMode={darkMode}/>
     </div>
 
   );
