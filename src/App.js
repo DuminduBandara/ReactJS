@@ -6,6 +6,9 @@ import video3 from "./assets/videos/misty.mp4"
 import video4 from "./assets/videos/Rain.mp4"
 import video5 from "./assets/videos/Snow.mp4"
 import video6 from "./assets/videos/Thunderstorm.mp4"
+import video7 from "./assets/videos/Clear.mp4"
+import video8 from "./assets/videos/Default.mp4"
+
 
 // import icons
 import { BsCloudDrizzle,
@@ -13,7 +16,8 @@ import { BsCloudDrizzle,
   BsFillCloudDrizzleFill, 
   BsFillCloudRainFill, 
   BsSnow2,
-  BsFillCloudHazeFill
+  BsFillCloudHazeFill,
+  BsSun,
 } from "react-icons/bs";
 
 import { IoThunderstormSharp } from "react-icons/io5";
@@ -25,7 +29,6 @@ const App = () => {
 
   const [data, setData] = React.useState({})
   const [location, setLocation] = React.useState('')
-  const [video, setVideo] = React.useState('')
 
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=6b118f3c4f9a96fd5fc0e4555331566e`
@@ -40,29 +43,36 @@ const App = () => {
     }
   }
     let ico = null;
-    let vid = null;
+    let vid = '';
 
     if(typeof data.main != "undefined"){
       if(data.weather[0].main == "Clouds"){
         ico = <BsFillCloudFill/>
-        // setVideo(video1);
+        vid = video1;
       }else if(data.weather[0].main == "Thunderstorm"){
         ico = <IoThunderstormSharp/>
-        // setVideo(video6);
+        vid = video6;
       }else if(data.weather[0].main == "Drizzle"){
         ico = <BsFillCloudDrizzleFill/>
-        // setVideo(video2);
+        vid = video2;
       }else if(data.weather[0].main == "Rain"){
         ico = <BsFillCloudRainFill/>
-        // setVideo(video4);
+        vid = video4;
       }else if(data.weather[0].main == "Snow"){
         ico = <BsSnow2/>
-        // setVideo(video5);
+        vid = video5;
+      }else if(data.weather[0].main == "Clear"){
+        ico = <BsSun/>
+        vid = video7;
       }else{
         ico = <BsFillCloudHazeFill/>
-        // setVideo(video3);
+        vid = video3;
       }
+    }else{
+      vid = video8
     }
+
+    // setVideos(prevVideo => "sjkdhjks")
 
     let d = new Date();
     let date = d.getDate();
@@ -85,9 +95,7 @@ const App = () => {
     <main>
       <div className='container-fluid m-0 p-0'>
         <div class="card text-bg-dark m-0 p-0 position-relative">
-          <video autoPlay muted loop>
-            {data.weather ? <source src={video4}  type='video/mp4'/>: null}
-          </video>
+          <video src={vid} autoPlay muted loop type='video/mp4'/>
           <div class="card-img-overlay">
             <div className='date-time m-2 text-center'>
               {day}, {month}, {date}, {year}
