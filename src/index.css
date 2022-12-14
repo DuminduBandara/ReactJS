@@ -10,6 +10,29 @@
   /* font-family: 'Open Sans', sans-serif; */
 }
 
+.sign{
+  width:250px;
+}
+
+.inputArea{
+  width:500px;
+  background:rgba(66, 66, 66, 0.356);
+}
+
+.search input{
+  width:90%;
+  border-top-left-radius:50px;
+  border-bottom-left-radius:50px;
+  outline:none;
+  background:transparent;
+  color:#fff;
+  font-size:1rem;
+}
+
+::placeholder{
+  color:#fff;
+}
+
 .container, .card{
   min-height:100vh;
 }
@@ -30,9 +53,6 @@ video{
   letter-spacing:2px;
 }
 
-.search input{
-  width:500px;
-}
 
 .icon{
   font-size:5rem;

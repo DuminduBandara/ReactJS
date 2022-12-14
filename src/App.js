@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import video1 from "./assets/videos/Clouds.mp4"
+
+import sign  from "./assets/images/signature-light.png"
+
+
+import video1  from "./assets/videos/Clouds.mp4"
 import video2 from "./assets/videos/Drizzle.mp4"
 import video3 from "./assets/videos/misty.mp4"
 import video4 from "./assets/videos/Rain.mp4"
@@ -18,6 +22,7 @@ import { BsCloudDrizzle,
   BsSnow2,
   BsFillCloudHazeFill,
   BsSun,
+  BsSearch
 } from "react-icons/bs";
 
 import { IoThunderstormSharp } from "react-icons/io5";
@@ -69,10 +74,9 @@ const App = () => {
         vid = video3;
       }
     }else{
-      vid = video8
+      vid = video8;
     }
 
-    // setVideos(prevVideo => "sjkdhjks")
 
     let d = new Date();
     let date = d.getDate();
@@ -97,20 +101,24 @@ const App = () => {
         <div class="card text-bg-dark m-0 p-0 position-relative">
           <video src={vid} autoPlay muted loop type='video/mp4'/>
           <div class="card-img-overlay">
+            <img className="sign" src={sign}/>
             <div className='date-time m-2 text-center'>
               {day}, {month}, {date}, {year}
               <br/>
               {time}
             </div>
             <div className='search d-flex justify-content-center'>
-              <input 
-                type='text'
-                value={location}
-                onChange={event => setLocation(event.target.value)}
-                onKeyPress = {search}
-                className="p-3 rounded-5 border-0"
-                placeholder='Search City....'
-              />
+              <div className='inputArea rounded-5'>
+                <input 
+                  type='text'
+                  value={location}
+                  onChange={event => setLocation(event.target.value)}
+                  onKeyPress = {search}
+                  className="p-3  border-0"
+                  placeholder='Search City....'
+                />
+                <BsSearch/>
+              </div>
             </div>
             <div className='top text-center p-2'>
               <div className='location d-flex justify-content-center'>
