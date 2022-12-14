@@ -111,13 +111,12 @@ const App = () => {
               <div className='inputArea rounded-5'>
                 <input 
                   type='text'
-                  value={location}
+                  value={location} 
                   onChange={event => setLocation(event.target.value)}
                   onKeyPress = {search}
                   className="p-3  border-0"
                   placeholder='Search City....'
                 />
-                <BsSearch/>
               </div>
             </div>
             <div className='top text-center p-2'>
@@ -155,7 +154,6 @@ const App = () => {
             
           </div>
         </div>
-        {/* <img src={process.env.PUBLIC_URL + "./images/m1.jpg"}/> */}
       </div>
     </main>
 
