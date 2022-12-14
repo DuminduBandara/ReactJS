@@ -10,131 +10,50 @@
   /* font-family: 'Open Sans', sans-serif; */
 }
 
-.container{
-  max-width:100%;
+.container, .card{
   min-height:100vh;
-  margin:0 auto;
-  padding:3rem;
 }
 
-.notes-list{
-  max-width:100%;
-  /* min-height:100vh; */
-  display:grid;
-  grid-gap:1rem;
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+.card-img-overlay{
+  background:rgba(1, 2, 70, 0.507);
 }
 
-.note{
-  /* max-width:100; */
-  display:flex;
-  flex-direction: column;
-  justify-content:space-between;
-  background:rgb(58, 127, 255);
-  border-radius:2px;
-  padding:2rem;
-  min-height:150px;
-  font-family: 'Poppins', sans-serif;
-  font-size:1.2rem;
-  white-space: pre-wrap;
-  /* margin-bottom:1rem; */
+video{
+  min-height:100vh;
+  object-fit: cover;
+  background-size:cover;
 }
 
-.note-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:#fff;
+.date-time{
+  font-family: 'Lato', sans-serif;
+  font-size:2rem;
+  letter-spacing:2px;
+}
+
+.search input{
+  width:500px;
+}
+
+.icon{
+  font-size:5rem;
+}
+
+.description{
   font-size:2rem;
 }
 
-
-.newNote{
-  background-color:rgb(202, 255, 12);
+.overlay-bottom{
+  width:400px;
+  background:rgba(95, 95, 95, 0.507);
+  margin:0 auto;
+  align-items:center;
+  border-radius:20px;
 }
 
-.newNote > textarea{
-  background:transparent;
-  border:none;
-  color:#000;
-  outline:none;
-  /* font-size:0.9rem; */
-  font-family: 'Poppins', sans-serif;
-
+.bottom{
+  font-size:1.7rem;
 }
 
-.saveBtn{
-  padding:0.7rem 1rem;
-  background:#fff;
-  border:none;
-  outline:none;
-  font-size:1rem;
-  border-radius:50px;
-  cursor: pointer;
-}
-
-.saveBtn:hover{
-  border-radius:5px;
-  color:rgb(123, 123, 252);
-}
-
-.delete-icon:hover{
-  color:rgb(239, 252, 123);
-}
-
-.search{
-  width:100%;
-  margin-bottom:2rem;
-  padding:0.3rem 0.9rem;
-  display:flex;
-  align-items: center;
-  background:rgb(228, 228, 228);
-  border-radius:50px;
-}
-
-.search > input{
-  width:100%;
-  padding:0.8rem;
-  background:transparent;
-  border:none;
-  outline:none;
+.bottom-txt{
   font-size:0.9rem;
 }
-
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items: center;
-  margin-bottom:2rem;
-}
-
-
-
-.navTitle{
-  font-family: 'Poppins', sans-serif;
-  font-size:2rem;
-}
-
-.modeBtn{
-  padding:0.7rem 1rem;
-  background:rgb(219, 219, 219);
-  border:none;
-  outline:none;
-  font-size:1rem;
-  border-radius:50px;
-  cursor: pointer;
-}
-
-.saveBtn:hover{
-  border-radius:5px;
-  color:rgb(123, 123, 252);
-}
-
-.dark-mode{
-  background:#000;
-}
-
-.dark-mode h1{
-  color:#fff;
-}
-

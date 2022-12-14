@@ -1,6 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import SearchWeather from './components/searchWeather'
+import video1 from "./assets/videos/Clouds.mp4"
+import video2 from "./assets/videos/Drizzle.mp4"
+import video3 from "./assets/videos/misty.mp4"
+import video4 from "./assets/videos/Rain.mp4"
+import video5 from "./assets/videos/Snow.mp4"
+import video6 from "./assets/videos/Thunderstorm.mp4"
 
 // import icons
 import { BsCloudDrizzle,
@@ -15,9 +20,12 @@ import { IoThunderstormSharp } from "react-icons/io5";
 
 
 const App = () => {
+  // const videoPath = process.nev.PUBLIC_URL;
+  
 
   const [data, setData] = React.useState({})
   const [location, setLocation] = React.useState('')
+  const [video, setVideo] = React.useState('')
 
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=6b118f3c4f9a96fd5fc0e4555331566e`
@@ -30,21 +38,29 @@ const App = () => {
       })
       setLocation('')
     }
-    }
+  }
     let ico = null;
+    let vid = null;
+
     if(typeof data.main != "undefined"){
       if(data.weather[0].main == "Clouds"){
         ico = <BsFillCloudFill/>
+        // setVideo(video1);
       }else if(data.weather[0].main == "Thunderstorm"){
         ico = <IoThunderstormSharp/>
+        // setVideo(video6);
       }else if(data.weather[0].main == "Drizzle"){
         ico = <BsFillCloudDrizzleFill/>
+        // setVideo(video2);
       }else if(data.weather[0].main == "Rain"){
         ico = <BsFillCloudRainFill/>
+        // setVideo(video4);
       }else if(data.weather[0].main == "Snow"){
         ico = <BsSnow2/>
+        // setVideo(video5);
       }else{
         ico = <BsFillCloudHazeFill/>
+        // setVideo(video3);
       }
     }
 
@@ -62,62 +78,68 @@ const App = () => {
 
     
 
-    const videopath = process.nev.PUBLIC_URL;
-
 
     
   return(
 
     <main>
-      <div className='container'>
-        <video autoplay muted loop>
-          <source src={`${videopath}/images/Pexels Videos 1779202.mp4`} type='video/mp4'/>
-        </video>
-        <div className='date-time'>
-          {day}, {month}, {date}, {year}<br/>
-          {time}
-        </div>
-        <div className='search'>
-          <input 
-            type='text'
-            value={location}
-            onChange={event => setLocation(event.target.value)}
-            onKeyPress = {search}
-          />
-          </div>
-          
-        <div className='top'>
-          <div className='location'>
-            <p>{data.name}</p>
-          </div>
-          <div className='temp'>
-            {data.main ? <h1>{((data.main.temp - 32.0) * 5/9).toFixed(2)}</h1> : null}
-          </div>
-          <div className='icon'>
-            {ico}
-          </div>
-          <div className='description'>
-            {data.weather ? <p>{data.weather[0].main}</p>: null}
-          </div>
-        </div>
+      <div className='container-fluid m-0 p-0'>
+        <div class="card text-bg-dark m-0 p-0 position-relative">
+          <video autoPlay muted loop>
+            {data.weather ? <source src={video4}  type='video/mp4'/>: null}
+          </video>
+          <div class="card-img-overlay">
+            <div className='date-time m-2 text-center'>
+              {day}, {month}, {date}, {year}
+              <br/>
+              {time}
+            </div>
+            <div className='search d-flex justify-content-center'>
+              <input 
+                type='text'
+                value={location}
+                onChange={event => setLocation(event.target.value)}
+                onKeyPress = {search}
+                className="p-3 rounded-5 border-0"
+                placeholder='Search City....'
+              />
+            </div>
+            <div className='top text-center p-2'>
+              <div className='location d-flex justify-content-center'>
+                {data.weather? <h2>{data.name}</h2>: null}
+                {data.weather? <h2>, {data.sys.country}</h2>: null}
+              </div>
+              <div className='temp'>
+                {data.main ? <h1>{((data.main.temp - 32.0) * 5/9).toFixed(2)} &deg;C</h1> : null}
+              </div>
+              <div className='icon'>
+                {ico}
+              </div>
+              <div className='description'>
+                {data.weather ? <p>{data.weather[0].main}</p>: null}
+              </div>
+            </div>
 
-        {data.name != undefined &&
-
-        <div className="bottom">
-          <div className='feels'>
-            {data.main ? <p>{data.main.feels_like}</p>: null}
-            <p>Feel Like</p>
-          </div>
-          <div className='humidity'>
-          {data.main ? <p>{data.main.humidity}%</p>: null}
-              <p>Humidity</p>
-          </div>
-          <div className='wind'>
-            {data.main ? <p>{data.main.wind}MPH</p>: null}
-            <p>Wind</p>
+            {data.name != undefined &&
+              <div className="bottom  p-3 d-block d-md-flex justify-content-center text-center overlay-bottom">
+                <div className='feels mr-5'>
+                  {data.main ? <p>{((data.main.feels_like - 32.0) * 5/9).toFixed(2)} &deg;C</p>: null}
+                  <p className="bottom-txt">Feel Like</p>
+                </div>
+                <div className='humidity mx-5'>
+                  {data.main ? <p>{data.main.humidity}%</p>: null}
+                  <p className="bottom-txt">Humidity</p>
+                </div>
+                <div className='wind'>
+                  {data.main ? <p>{data.wind.speed}MPH</p>: null}
+                  <p className="bottom-txt">Wind</p>
+                </div>
+              </div>
+            }
+            
           </div>
         </div>
-      }
+        {/* <img src={process.env.PUBLIC_URL + "./images/m1.jpg"}/> */}
       </div>
     </main>
 
