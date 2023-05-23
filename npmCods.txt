@@ -1,0 +1,64 @@
+01) npm init -y //install package.json
+
+02) npm install react react-dom //install react
+
+03) npm install @babel/core @babel/preset-env @babel/preset-react babel-loader
+
+04) //create .babelrc file inside node_modules folder and paste it
+{
+    "presets": ["@babel/preset-react", "@babel-preset-env"]
+}
+
+05) npm install webpack webpack-cli webpack-dev-server
+
+06) //create webpack.config.js file and paste below code
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.[hash].js",
+    path: path.resolve(__dirname, "dist"),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }),
+  ],
+  resolve: {
+    modules: [__dirname, "src", "node_modules"],
+    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: require.resolve("babel-loader"),
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.png|svg|jpg|gif$/,
+        use: ["file-loader"],
+      },
+    ],
+  },
+};
+
+07) "start": "webpack-dev-server --hot --open"
+
+ //past this code inside package.json file script array
+
+08) npm install html-webpack-plugin
+========================================================================
+
+npx create-react-app react-js
+cd to new react folder
+code . //open folder with vscode
+npm run start //display files
+npx json-server --watch data/db.json --port 8080
+npm install react-router-dom@6 //install react router
